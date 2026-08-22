@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
-import { Users, Calendar, Clock, DollarSign, TrendingUp } from 'lucide-react';
+import { Users, Calendar, Clock, DollarSign } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -27,28 +27,28 @@ const AdminDashboard = () => {
 
   const stats = [
     {
-      title: 'Total Employees',
+      title: 'People on file',
       value: analytics.totalEmployees,
       icon: Users,
       color: 'bg-blue-500',
       link: '/employees',
     },
     {
-      title: 'Pending Leaves',
+      title: 'Time-off queue',
       value: analytics.pendingLeaves,
       icon: Calendar,
       color: 'bg-yellow-500',
       link: '/leave',
     },
     {
-      title: 'Today Attendance',
+      title: 'Today on-site',
       value: analytics.todayAttendance,
       icon: Clock,
       color: 'bg-green-500',
       link: '/attendance',
     },
     {
-      title: 'Monthly Payroll',
+      title: 'Payroll this month',
       value: `$${analytics.monthlyPayroll.toLocaleString()}`,
       icon: DollarSign,
       color: 'bg-purple-500',
@@ -60,8 +60,8 @@ const AdminDashboard = () => {
     <Layout>
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
-          <p className="mt-2 text-gray-600">Overview of your HR operations</p>
+          <h1 className="text-3xl font-bold text-gray-900">Operations overview</h1>
+          <p className="mt-2 text-gray-600">A clear read on the work behind your workplace.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
@@ -89,32 +89,32 @@ const AdminDashboard = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="card">
-            <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
+            <h2 className="text-xl font-semibold mb-4">Move the work forward</h2>
             <div className="space-y-3">
               <Link
                 to="/employees"
                 className="block w-full btn btn-primary text-center"
               >
-                Manage Employees
+                Open people directory
               </Link>
               <Link
                 to="/leave"
                 className="block w-full btn btn-secondary text-center"
               >
-                Review Leave Requests
+                Triage time off
               </Link>
               <Link
                 to="/reports"
                 className="block w-full btn btn-secondary text-center"
               >
-                View Reports
+                Read the reports
               </Link>
             </div>
           </div>
 
           <div className="card">
-            <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
-            <p className="text-gray-500">Activity feed will be displayed here</p>
+            <h2 className="text-xl font-semibold mb-4">Recent movement</h2>
+            <p className="text-gray-500">Your latest workplace activity will appear here.</p>
           </div>
         </div>
       </div>

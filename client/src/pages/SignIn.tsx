@@ -37,15 +37,15 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-[#197c78] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h1 className="text-center text-4xl font-bold text-primary-600 mb-2">Dayflow</h1>
-          <h2 className="text-center text-2xl font-semibold text-gray-900">
-            Sign in to your account
+          <h1 className="text-center text-4xl font-bold text-[#fffdf8] mb-2">Dayflow<span className="text-[#f5b544]">.</span></h1>
+          <h2 className="text-center text-2xl font-semibold text-[#fffdf8]">
+            Enter your workspace
           </h2>
         </div>
-        <form className="mt-8 space-y-6 bg-white p-8 rounded-lg shadow-lg" onSubmit={handleSubmit}>
+        <form className="mt-8 space-y-6 bg-[#fffdf8] p-8 border-2 border-[#17211f] shadow-[8px_8px_0_#17211f]" onSubmit={handleSubmit}>
           {error && (
             <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
               {error}
@@ -95,7 +95,7 @@ const SignIn = () => {
               ) : (
                 <>
                   <LogIn className="w-5 h-5 mr-2" />
-                  Sign in
+                  Enter workspace
                 </>
               )}
             </button>
@@ -103,7 +103,7 @@ const SignIn = () => {
 
           <div className="text-center">
             <Link to="/signup" className="text-sm text-primary-600 hover:text-primary-500">
-              Don't have an account? Sign up
+              New here? Create an account
             </Link>
           </div>
         </form>

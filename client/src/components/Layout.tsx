@@ -56,15 +56,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white shadow-sm border-b border-gray-200">
+    <div className="min-h-screen bg-[#f4f1ea]">
+      <nav className="border-b border-[#d9ddd4] bg-[#fffdf8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+          <div className="flex justify-between min-h-20 py-3">
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
-                <h1 className="text-2xl font-bold text-primary-600">Dayflow</h1>
+                <h1 className="text-2xl font-bold text-[#e85d45]">Dayflow<span className="text-[#197c78]">.</span></h1>
               </div>
-              <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+              <div className="hidden sm:ml-8 sm:flex sm:items-center sm:gap-2">
                 {navItems.map((item) => {
                   const Icon = item.icon;
                   const isActive = location.pathname === item.path;
@@ -72,10 +72,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     <Link
                       key={item.path}
                       to={item.path}
-                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+                      className={`inline-flex items-center px-3 py-2 text-sm font-semibold rounded-sm ${
                         isActive
-                          ? 'border-primary-500 text-gray-900'
-                          : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                          ? 'bg-[#17211f] text-white'
+                          : 'text-[#687470] hover:bg-[#e5ebe3] hover:text-[#17211f]'
                       }`}
                     >
                       <Icon className="w-4 h-4 mr-2" />
@@ -88,7 +88,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="flex items-center gap-3">
               <Link
                 to="/profile"
-                className="text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors cursor-pointer px-2 py-1 rounded hover:bg-gray-100"
+                className="text-sm font-semibold text-[#197c78] hover:text-[#bf3f31] transition-colors cursor-pointer px-2 py-1"
                 title="Click to view your profile"
               >
                 {user?.username || 
@@ -99,17 +99,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <button
                 onClick={handleLogout}
                 disabled={loggingOut}
-                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center px-3 py-2 text-sm leading-4 font-semibold text-white bg-[#197c78] hover:bg-[#12615e] focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed rounded-sm"
               >
                 {loggingOut ? (
                   <>
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Logging out...
+                    Exiting...
                   </>
                 ) : (
                   <>
                     <LogOut className="w-4 h-4 mr-2" />
-                    Logout
+                    Sign out
                   </>
                 )}
               </button>
@@ -117,7 +117,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         </div>
       </nav>
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">{children}</main>
+      <main className="max-w-7xl mx-auto py-8 sm:px-6 lg:px-8">{children}</main>
     </div>
   );
 };

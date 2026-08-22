@@ -1,32 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --ink: #17211f;
+    --muted: #687470;
+    --paper: #f4f1ea;
+    --surface: #fffdf8;
+    --coral: #e85d45;
+    --coral-dark: #bf3f31;
+    --teal: #197c78;
+    --line: #d9ddd4;
+  }
+
+  * {
+    border-color: var(--line);
+  }
+
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply text-gray-900;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0;
   }
 }
 
 @layer components {
   .card {
-    @apply bg-white rounded-lg shadow-md p-6;
+    @apply p-6;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    box-shadow: 6px 6px 0 rgba(23, 33, 31, 0.08);
   }
   
   .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-colors;
+    @apply inline-flex items-center justify-center font-semibold transition-colors;
+    min-height: 44px;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    letter-spacing: 0.01em;
   }
   
   .btn-primary {
-    @apply bg-primary-600 text-white hover:bg-primary-700;
+    background: var(--coral);
+    color: white;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .btn-primary:hover {
+    background: var(--coral-dark);
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 var(--ink);
   }
   
   .btn-secondary {
-    @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+    background: transparent;
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+
+  .btn-secondary:hover {
+    background: #e5ebe3;
   }
   
   .input {
-    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply w-full px-4 py-2;
+    min-height: 44px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--ink);
+  }
+
+  .input:focus {
+    outline: 2px solid var(--teal);
+    outline-offset: 1px;
   }
 }
 

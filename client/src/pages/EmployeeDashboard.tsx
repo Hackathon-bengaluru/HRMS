@@ -35,30 +35,30 @@ const EmployeeDashboard = () => {
 
   const cards = [
     {
-      title: 'Profile',
-      description: 'View and edit your profile',
+      title: 'Your profile',
+      description: 'Keep your details current',
       icon: User,
       link: '/profile',
       color: 'bg-blue-500',
     },
     {
-      title: 'Attendance',
-      description: 'Check in/out and view records',
+      title: 'Time clock',
+      description: 'Clock in and review your rhythm',
       icon: Clock,
       link: '/attendance',
       color: 'bg-green-500',
     },
     {
-      title: 'Leave Requests',
-      description: 'Apply for time off',
+      title: 'Time away',
+      description: 'Plan and track time off',
       icon: Calendar,
       link: '/leave',
       color: 'bg-purple-500',
       badge: stats.pendingLeaves > 0 ? stats.pendingLeaves : undefined,
     },
     {
-      title: 'Payroll',
-      description: 'View salary details',
+      title: 'Pay details',
+      description: 'See your salary history',
       icon: DollarSign,
       link: '/payroll',
       color: 'bg-yellow-500',
@@ -70,9 +70,9 @@ const EmployeeDashboard = () => {
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">
-            Welcome back, {user?.profile?.first_name || 'Employee'}!
+            Good to see you, {user?.profile?.first_name || 'there'}.
           </h1>
-          <p className="mt-2 text-gray-600">Here's your quick access to everything you need.</p>
+          <p className="mt-2 text-gray-600">A small, useful view of your workday.</p>
         </div>
 
         {stats.todayAttendance && !stats.todayAttendance.check_in && (
@@ -116,7 +116,7 @@ const EmployeeDashboard = () => {
 
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="card">
-            <h2 className="text-xl font-semibold mb-4">Today's Attendance</h2>
+            <h2 className="text-xl font-semibold mb-4">Today at a glance</h2>
             {stats.todayAttendance ? (
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -142,19 +142,19 @@ const EmployeeDashboard = () => {
           </div>
 
           <div className="card">
-            <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
+            <h2 className="text-xl font-semibold mb-4">Shortcuts</h2>
             <div className="space-y-2">
               <Link
                 to="/attendance"
                 className="block w-full btn btn-primary text-center"
               >
-                Check In/Out
+                Open time clock
               </Link>
               <Link
                 to="/leave"
                 className="block w-full btn btn-secondary text-center"
               >
-                Apply for Leave
+                Request time away
               </Link>
             </div>
           </div>

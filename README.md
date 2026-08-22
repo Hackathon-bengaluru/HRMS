@@ -1,340 +1,364 @@
-# Dayflow - Human Resource Management System
+# Dayflow HRMS
 
-A comprehensive HRMS (Human Resource Management System) built with modern web technologies. Dayflow provides a complete solution for managing employees, attendance, leave requests, payroll, and generating reports.
+Dayflow is a web-based Human Resource Management System developed as a full-stack student project. It brings common HR tasks into one application, including employee records, attendance, leave requests, payroll, and reports.
 
-## 🚀 Features
+The project has a React client and an Express server. Data is stored locally in a SQLite database, which makes the application easy to run for development and demonstration purposes.
 
-- **User Authentication & Authorization**
-  - Secure JWT-based authentication
-  - Role-based access control (Employee, Admin, HR)
-  - Protected routes and API endpoints
+## Main Features
 
-- **Employee Management**
-  - Employee profiles with detailed information
-  - Employee directory and listing
-  - Profile management
+### Authentication and roles
 
-- **Attendance Tracking**
-  - Check-in/Check-out functionality
-  - Attendance history and records
-  - Status tracking (present, absent, half-day, leave)
+- JWT-based sign-in and registration
+- Password hashing with bcryptjs
+- Protected pages and API requests
+- Separate access levels for employees, administrators, and HR users
 
-- **Leave Management**
-  - Leave request submission
-  - Leave type management (paid, sick, unpaid)
-  - Approval workflow (pending, approved, rejected)
-  - Admin comments and remarks
+### Employee records
 
-- **Payroll Management**
-  - Monthly payroll generation
-  - Salary calculations (base salary, allowances, deductions)
-  - Payroll status tracking
+- Employee profiles with personal and job information
+- Employee directory for administrators
+- Profile viewing and editing
 
-- **Reports & Analytics**
-  - Comprehensive reporting dashboard
-  - Data visualization with charts
-  - Admin-only reports
+### Attendance
 
-- **Dashboard**
-  - Employee dashboard with personal information
-  - Admin dashboard with system overview
-  - Role-specific views
+- Check-in and check-out actions
+- Attendance history
+- Present, absent, half-day, and leave statuses
 
-## 🛠️ Tech Stack
+### Leave management
 
-### Frontend
-- **React 18** - UI library
-- **TypeScript** - Type-safe JavaScript
-- **Vite** - Build tool and dev server
-- **React Router DOM** - Client-side routing
-- **Tailwind CSS** - Utility-first CSS framework
-- **Axios** - HTTP client for API requests
-- **Lucide React** - Icon library
-- **date-fns** - Date utility library
-- **Recharts** - Chart library for data visualization
+- Leave applications for employees
+- Paid, sick, and unpaid leave types
+- Pending, approved, and rejected states
+- Administrator remarks and approval actions
 
-### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **TypeScript** - Type-safe JavaScript
-- **Better-Sqlite3** - SQLite database
-- **JSON Web Token (JWT)** - Authentication tokens
-- **bcryptjs** - Password hashing
-- **express-validator** - Request validation
-- **CORS** - Cross-origin resource sharing
-- **dotenv** - Environment variable management
+### Payroll
 
-### Development Tools
-- **Concurrently** - Run multiple commands simultaneously
-- **tsx** - TypeScript execution for development
-- **PostCSS & Autoprefixer** - CSS processing
+- Monthly payroll records
+- Base salary, allowances, deductions, and net salary
+- Pending and paid payroll statuses
 
-## 📁 Project Structure
+### Reports and dashboards
 
-```
-Dayflow-Human-Resource-Management-System-main/
-├── client/                 # Frontend React application
-│   ├── src/
-│   │   ├── components/     # Reusable components
-│   │   │   ├── Layout.tsx
-│   │   │   └── ProtectedRoute.tsx
-│   │   ├── contexts/       # React contexts
-│   │   │   └── AuthContext.tsx
-│   │   ├── pages/          # Page components
-│   │   │   ├── AdminDashboard.tsx
-│   │   │   ├── Attendance.tsx
-│   │   │   ├── EmployeeDashboard.tsx
-│   │   │   ├── EmployeeList.tsx
-│   │   │   ├── LeaveManagement.tsx
-│   │   │   ├── Payroll.tsx
-│   │   │   ├── Profile.tsx
-│   │   │   ├── Reports.tsx
-│   │   │   ├── SignIn.tsx
-│   │   │   └── SignUp.tsx
-│   │   ├── App.tsx         # Main app component
-│   │   ├── main.tsx        # Entry point
-│   │   └── index.css       # Global styles
-│   ├── index.html
-│   ├── package.json
-│   ├── tailwind.config.js
-│   ├── tsconfig.json
-│   └── vite.config.ts
-│
-├── server/                 # Backend Express application
-│   ├── src/
-│   │   ├── database/       # Database setup and migrations
-│   │   │   ├── db.ts
-│   │   │   └── migrate.ts
-│   │   ├── middleware/     # Express middleware
-│   │   │   └── auth.ts
-│   │   ├── routes/         # API routes
-│   │   │   ├── attendance.ts
-│   │   │   ├── auth.ts
-│   │   │   ├── employees.ts
-│   │   │   ├── leave.ts
-│   │   │   ├── payroll.ts
-│   │   │   └── reports.ts
-│   │   └── index.ts        # Server entry point
-│   ├── package.json
-│   └── tsconfig.json
-│
-├── package.json            # Root package.json
-└── README.md
+- Attendance, leave, and payroll reports
+- Data summaries and charts
+- Different dashboards for employees and administrators
+
+## Technology Used
+
+### Client
+
+- React 18
+- TypeScript
+- Vite
+- React Router DOM
+- Tailwind CSS
+- Axios
+- Lucide React
+- date-fns
+- Recharts
+
+### Server
+
+- Node.js
+- Express.js
+- TypeScript
+- Better-SQLite3
+- JSON Web Token
+- bcryptjs
+- express-validator
+- CORS
+- dotenv
+
+### Development tools
+
+- npm
+- concurrently
+- tsx
+- PostCSS
+- Autoprefixer
+
+## Project Layout
+
+```text
+Dayflow-Human-Resource-Management-System/
+|-- client/                  React and Vite frontend
+|   |-- src/
+|   |   |-- components/      Shared layout and route components
+|   |   |-- contexts/        Authentication context
+|   |   |-- pages/           Application screens
+|   |   |-- App.tsx          Client routes
+|   |   |-- main.tsx         Frontend entry point
+|   |   `-- index.css        Global styles
+|   |-- index.html
+|   |-- package.json
+|   |-- tailwind.config.js
+|   |-- tsconfig.json
+|   `-- vite.config.ts
+|-- server/                  Express and SQLite backend
+|   |-- src/
+|   |   |-- database/         Database setup and migrations
+|   |   |-- middleware/       Authentication middleware
+|   |   |-- routes/           API route modules
+|   |   `-- index.ts          Server entry point
+|   |-- package.json
+|   `-- tsconfig.json
+|-- package.json             Root scripts
+`-- README.md
 ```
 
-## 📋 Prerequisites
+## Requirements
 
-Before you begin, ensure you have the following installed:
-- **Node.js** (v18 or higher)
-- **npm** (v9 or higher) or **yarn**
+Install the following before starting the project:
 
-## 🔧 Installation
+- Node.js 18 or newer
+- npm 9 or newer, or Yarn
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd Dayflow-Human-Resource-Management-System-main
-   ```
+## Installation
 
-2. **Install all dependencies**
+1. Open a terminal in the project directory.
+
+2. Install the root, server, and client dependencies:
+
    ```bash
    npm run install:all
    ```
-   
-   This will install dependencies for:
-   - Root project
-   - Server
-   - Client
 
-   Alternatively, you can install them separately:
+   The equivalent manual installation is:
+
    ```bash
    npm install
-   cd server && npm install
-   cd ../client && npm install
+   cd server
+   npm install
+   cd ../client
+   npm install
    ```
 
-3. **Set up environment variables**
-   
-   Create a `.env` file in the `server` directory:
+3. Create a file called `.env` inside the `server` folder:
+
    ```env
    PORT=5000
    JWT_SECRET=your-secret-key-here
    NODE_ENV=development
    ```
 
-## 🚀 Running the Application
+   For a real deployment, replace the example JWT secret with a long private value.
 
-### Development Mode
+## Starting the Application
 
-Run both client and server concurrently:
+### Start both parts together
+
+From the project root, run:
+
 ```bash
 npm run dev
 ```
 
-This will start:
-- **Frontend** on `http://localhost:3000`
-- **Backend API** on `http://localhost:5000`
+The normal development addresses are:
 
-### Run Separately
+- Frontend: `http://localhost:3000`
+- Backend: `http://localhost:5000`
 
-**Start the server only:**
+### Start the server only
+
 ```bash
 npm run dev:server
 ```
 
-**Start the client only:**
+### Start the client only
+
 ```bash
 npm run dev:client
 ```
 
-### Production Build
+When starting the client and server separately, use two terminal windows.
 
-**Build the client:**
+## Production Build
+
+Build the frontend:
+
 ```bash
 cd client
 npm run build
 ```
 
-**Build the server:**
+Build and start the backend:
+
 ```bash
 cd server
 npm run build
 npm start
 ```
 
-## 🗄️ Database
+The client can also be previewed after building:
 
-The application uses **SQLite** database (Better-Sqlite3). The database file is automatically created at `server/data/dayflow.db` when you first run the server.
+```bash
+cd client
+npm run preview
+```
 
-### Database Schema
+## Database
 
-The system includes the following tables:
-- **users** - User accounts and authentication
-- **employee_profiles** - Employee personal and professional information
-- **attendance** - Attendance records
-- **leave_requests** - Leave applications
-- **payroll** - Payroll records
+Dayflow uses Better-SQLite3. The database is created at:
 
-Database migrations run automatically on server startup.
+```text
+server/data/dayflow.db
+```
 
-## 🔌 API Endpoints
+The application creates the `data` directory automatically when the server starts. Database migrations also run during startup.
+
+The database contains these main tables:
+
+- `users` - Login accounts, roles, and account details
+- `employee_profiles` - Employee personal and professional information
+- `attendance` - Daily check-in and check-out records
+- `leave_requests` - Employee leave applications
+- `payroll` - Salary and payment records
+
+## API Reference
+
+The API is served from `http://localhost:5000`.
 
 ### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `GET /api/auth/me` - Get current user (protected)
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| POST | `/api/auth/register` | Register a new account |
+| POST | `/api/auth/login` | Sign in and receive a JWT |
+| GET | `/api/auth/me` | Get the current authenticated user |
 
 ### Employees
-- `GET /api/employees` - Get all employees (admin)
-- `GET /api/employees/:id` - Get employee by ID
-- `PUT /api/employees/:id` - Update employee (protected)
-- `DELETE /api/employees/:id` - Delete employee (admin)
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| GET | `/api/employees` | List employees for administrators |
+| GET | `/api/employees/:id` | Get one employee |
+| PUT | `/api/employees/:id` | Update an employee profile |
+| DELETE | `/api/employees/:id` | Delete an employee as an administrator |
 
 ### Attendance
-- `GET /api/attendance` - Get attendance records
-- `POST /api/attendance/check-in` - Check in
-- `POST /api/attendance/check-out` - Check out
-- `GET /api/attendance/:id` - Get attendance by ID
 
-### Leave Management
-- `GET /api/leave` - Get leave requests
-- `POST /api/leave` - Create leave request
-- `PUT /api/leave/:id` - Update leave request
-- `DELETE /api/leave/:id` - Delete leave request
-- `PUT /api/leave/:id/approve` - Approve leave (admin)
-- `PUT /api/leave/:id/reject` - Reject leave (admin)
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| GET | `/api/attendance` | Get attendance records |
+| POST | `/api/attendance/check-in` | Record check-in |
+| POST | `/api/attendance/check-out` | Record check-out |
+| GET | `/api/attendance/:id` | Get one attendance record |
+
+### Leave
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| GET | `/api/leave` | List leave requests |
+| POST | `/api/leave` | Create a leave request |
+| PUT | `/api/leave/:id` | Update a leave request |
+| DELETE | `/api/leave/:id` | Delete a leave request |
+| PUT | `/api/leave/:id/approve` | Approve a request as an administrator |
+| PUT | `/api/leave/:id/reject` | Reject a request as an administrator |
 
 ### Payroll
-- `GET /api/payroll` - Get payroll records
-- `POST /api/payroll` - Create payroll record (admin)
-- `GET /api/payroll/:id` - Get payroll by ID
-- `PUT /api/payroll/:id` - Update payroll (admin)
 
-### Reports
-- `GET /api/reports/attendance` - Attendance reports
-- `GET /api/reports/leave` - Leave reports
-- `GET /api/reports/payroll` - Payroll reports
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| GET | `/api/payroll` | Get payroll records |
+| POST | `/api/payroll` | Create a payroll record as an administrator |
+| GET | `/api/payroll/:id` | Get one payroll record |
+| PUT | `/api/payroll/:id` | Update a payroll record as an administrator |
 
-### Health Check
-- `GET /api/health` - API health status
+### Reports and status
 
-**Note:** Most endpoints require authentication via JWT token. Include the token in the Authorization header: `Bearer <token>`
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| GET | `/api/reports/attendance` | Attendance report data |
+| GET | `/api/reports/leave` | Leave report data |
+| GET | `/api/reports/payroll` | Payroll report data |
+| GET | `/api/health` | Check whether the API is running |
 
-## 🔐 Authentication & Authorization
+Most endpoints require a valid token in this format:
 
-The application uses JWT (JSON Web Tokens) for authentication. After login, include the token in subsequent requests:
-
-```
+```text
 Authorization: Bearer <your-jwt-token>
 ```
 
-### User Roles
-- **employee** - Basic access to personal dashboard, attendance, leave, and payroll
-- **admin** - Full access including employee management and reports
-- **hr** - Human resources access (similar to admin)
+## User Roles
 
-## 🎨 Frontend Routes
+- **Employee** - Access to personal dashboard, profile, attendance, leave, and payroll
+- **Admin** - Full access to employee management, approvals, payroll, and reports
+- **HR** - Human resources access with administrator-style management permissions
 
-- `/signin` - Sign in page
-- `/signup` - Sign up page
-- `/dashboard` - Employee dashboard (protected)
-- `/admin` - Admin dashboard (admin only)
-- `/profile` - User profile (protected)
-- `/attendance` - Attendance management (protected)
-- `/leave` - Leave management (protected)
-- `/payroll` - Payroll view (protected)
-- `/employees` - Employee list (admin only)
-- `/reports` - Reports and analytics (admin only)
+## Frontend URLs
 
-## 🧪 Development
+| URL | Screen | Access |
+| --- | --- | --- |
+| `/signin` | Sign-in page | Public |
+| `/signup` | Registration page | Public |
+| `/dashboard` | Employee dashboard | Protected |
+| `/admin` | Administrator dashboard | Admin or HR |
+| `/profile` | User profile | Protected |
+| `/attendance` | Attendance management | Protected |
+| `/leave` | Leave management | Protected |
+| `/payroll` | Payroll view | Protected |
+| `/employees` | Employee directory | Admin or HR |
+| `/reports` | Reports and analytics | Admin or HR |
 
-### TypeScript Configuration
-Both client and server use TypeScript with strict type checking enabled.
+## Available npm Scripts
 
-### Code Structure
-- **Client**: Component-based architecture with React hooks and context API
-- **Server**: RESTful API with Express.js, route-based organization
-- **Database**: SQLite with Better-Sqlite3 for synchronous operations
+### Root folder
 
-## 📝 Scripts
+- `npm run dev` - Start client and server together
+- `npm run dev:server` - Start the backend in development mode
+- `npm run dev:client` - Start the frontend in development mode
+- `npm run install:all` - Install dependencies in all project folders
 
-### Root Level
-- `npm run dev` - Run both client and server in development mode
-- `npm run dev:server` - Run server only
-- `npm run dev:client` - Run client only
-- `npm run install:all` - Install all dependencies
+### Client folder
 
-### Client Scripts
-- `npm run dev` - Start Vite dev server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
+- `npm run dev` - Start the Vite development server
+- `npm run build` - Type-check and build the frontend
+- `npm run preview` - Preview the production frontend build
 
-### Server Scripts
-- `npm run dev` - Start server with hot reload (tsx watch)
-- `npm run build` - Compile TypeScript
-- `npm start` - Start production server
+### Server folder
 
-## 🤝 Contributing
+- `npm run dev` - Start the backend with `tsx watch`
+- `npm run build` - Compile the backend TypeScript
+- `npm start` - Run the compiled backend
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## Development Notes
 
-## 📄 License
+- The client uses reusable React components, React Router, and an authentication context.
+- The server is organized into Express route modules and middleware.
+- TypeScript strict checking is enabled for both applications.
+- SQLite migrations run automatically when the backend starts.
+- Do not commit the server `.env` file or production secrets.
 
-This project is licensed under the ISC License.
+## Contributing
 
-## 👥 Authors
+1. Fork the repository.
+2. Create a feature branch:
 
-- Chinni Jayanth
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 
-## 🙏 Acknowledgments
+3. Make and test your changes.
+4. Commit the changes:
 
-- Built with modern web technologies
-- Uses open-source libraries and frameworks
+   ```bash
+   git commit -m "Describe your change"
+   ```
 
----
+5. Push the branch and open a pull request.
 
-**Note:** Make sure to set up your `.env` file with appropriate values before running the application in production.
+## License
+
+This project is released under the ISC License.
+
+## Author
+
+Ch. Rahul Sai Sudheer
+D. Pavana Krishna
+B. Vamsi Krishna
+B. Bhaskar
+
+## Note
+
+This application is intended for learning and development. Before using it in production, configure a secure JWT secret, review permissions, and add any security or deployment settings required for the target environment.
